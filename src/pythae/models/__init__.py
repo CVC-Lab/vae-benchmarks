@@ -38,6 +38,7 @@ from .vae_lin_nf import VAE_LinNF, VAE_LinNF_Config
 from .vamp import VAMP, VAMPConfig
 from .vq_vae import VQVAE, VQVAEConfig
 from .wae_mmd import WAE_MMD, WAE_MMD_Config
+from .mcevae import MCEVAE, MCEVAEConfig
 
 __all__ = [
     "AutoModel",
@@ -87,4 +88,6 @@ __all__ = [
     "VAE_IAF_Config",
     "PoincareVAE",
     "PoincareVAEConfig",
+    "MCEVAE",
+    "MCEVAEConfig",
 ]

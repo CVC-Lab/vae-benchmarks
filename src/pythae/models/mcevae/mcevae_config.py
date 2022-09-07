@@ -4,7 +4,7 @@ from ..vae import VAEConfig
 
 
 @dataclass
-class MceVAEConfig(VAEConfig):
+class MCEVAEConfig(VAEConfig):
     r"""
     Disentangled :math:`\MCE`-VAE model config config class
 
