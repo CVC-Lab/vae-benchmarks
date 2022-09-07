@@ -5,7 +5,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from .VAE_base import Model
 from .utils import  NonLinear, GatedDense
-from .mcevae_config import MceVAEConfig
+from .mcevae_config import MCEVAEConfig
 
 from ...data.datasets import BaseDataset
 from ..ae import AE
@@ -15,7 +15,21 @@ from ..nn import BaseDecoder, BaseEncoder
 
 
 class MCEVAE(Model):
-    def __init__(self,model_config: MceVAEConfig, 
+    """
+    Disentangled :math:`\MCE`-VAE model config config class
+
+    Parameters:
+        input_dim (tuple): The input_data dimension.
+        latent_dim (int): The latent space dimension. Default: None.
+        reconstruction_loss (str): The reconstruction loss to use ['bce', 'mse']. Default: 'mse'
+        beta (float): The balancing factor. Default: 10.
+        C (float): The value of the KL divergence term of the ELBO we wish to approach, measured in
+            nats. Default: 50.
+        warmup_epoch (int): The number of epochs during which the KL divergence objective will
+            increase from 0 to C (should be smaller or equal to nb_epochs). Default: 100
+        epoch (int): The current epoch. Default: 0
+    """
+    def __init__(self,model_config: MCEVAEConfig, 
                 in_size=28*28,
                 aug_dim=16*7*7,
                 latent_z_c=0,
@@ -400,7 +414,6 @@ class MCEVAE(Model):
 
         return output
 
-        
         
 
     def get_x_ref(self, x, tau_q):
