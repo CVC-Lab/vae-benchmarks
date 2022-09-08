@@ -20,7 +20,7 @@ class MCEVAEConfig(VAEConfig):
         epoch (int): The current epoch. Default: 0
     """
     in_size: int = 28*28
-    aug_dim: float = 16*7*7
+    aug_dim: int = 16*7*7
     latent_z_c: int = 0
     latent_z_var: int = 5
     mode: str = 'SO2'
