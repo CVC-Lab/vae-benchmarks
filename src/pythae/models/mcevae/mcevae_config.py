@@ -31,7 +31,8 @@ class MCEVAEConfig(VAEConfig):
     out_dim: int = 1
     hidden_z_c: int = 300
     hidden_z_var: int =300
-    hidden_tau: int =32 
+    hidden_tau: int = 32 
     training_mode: str = 'supervised'
     device: str = 'cpu'
     tag: str = 'default'
+    model_name = "MCEVAE"

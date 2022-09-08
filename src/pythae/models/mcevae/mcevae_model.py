@@ -46,7 +46,7 @@ class MCEVAE(Model):
                 activation=nn.Sigmoid,
                 training_mode = 'supervised',
                 device = 'cpu',
-                tag = 'default'):
+                tag = 'default',model_name = "MCEVAE"):
         super(MCEVAE, self).__init__()
         self.mode = model_config.mode
         self.invariance_decoder = model_config.invariance_decoder
@@ -65,6 +65,7 @@ class MCEVAE(Model):
         self.training_mode = model_config.training_mode
         self.tag = model_config.tag
 
+        self.model_name = "MCEVAE"
         print('in_size: {}, latent_z_c: {}, latent_z_var:{}, mode: {}, sem_dec: {}, rec_loss: {}, div: {}'.format(in_size, latent_z_c, latent_z_var, mode, invariance_decoder, rec_loss, div))
         
         # transformation type
