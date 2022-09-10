@@ -1,10 +1,10 @@
 from pydantic.dataclasses import dataclass
 
-
+from ..vae import VAEConfig
 
 
 @dataclass
-class MCEVAEConfig():
+class MCEVAEConfig(VAEConfig):
     r"""
     Disentangled :math:`\MCE`-VAE model config config class
 
@@ -36,4 +36,3 @@ class MCEVAEConfig():
     device: str = 'cpu'
     tag: str = 'default'
     model_name = "MCEVAE"
-    beta: int = 1
